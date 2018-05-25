@@ -1,20 +1,20 @@
 package Board;
 
+import java.util.ArrayList;
+import Player.*;
+
 public class Block {
 	
-	private boolean occupied;
+	private ArrayList<Player> players = new ArrayList<Player>();
 
 	public Block() {}
 
-	public void stepOn() {
-		this.occupied = true;
+	public void stepOn(Player player) {
+		this.players.add(player);
 	}
 
-	public void stepOff() {
-		this.occupied = false;
+	public void stepOff(Player player) {
+		this.players.remove(player);
 	}
 	
-	public void setOccupied(boolean occupied) {
-		this.occupied = occupied;
-	}
 }

@@ -1,9 +1,14 @@
 package Board;
 
+import java.util.ArrayList;
+
+import Player.Player;
+
 public class MagneticBlock extends Block{
 
 	private int magneticFieldStrength;
 	private boolean upwards;
+	private ArrayList<Player> players = new ArrayList<Player>();
 	
 	public MagneticBlock(int magneticFieldStrength, boolean upwards) {
 		
@@ -11,13 +16,13 @@ public class MagneticBlock extends Block{
 		this.upwards = upwards;
 	}
 	
-	public void stepOn(int velocity) {
-		
+	public void stepOn(Player player, int velocity) {
+		this.players.add(player);
 	}
 	
 	@Override
-	public void stepOff() {
-		
+	public void stepOff(Player player) {
+		this.players.remove(player);
 	}
 
 
